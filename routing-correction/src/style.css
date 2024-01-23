@@ -126,6 +126,31 @@ li:last-child {
     color: #000000;
 }
 
+/* Info profile form */
+.infoProfile {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+}
+  
+.infoProfile-field {
+display: flex;
+flex-direction: column;
+}
+
+.infoProfile-button {
+margin-top: 20px;
+padding: 10px 20px;
+}
+
+.infoProfile-body {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 
 @media (max-width: 639px) {
 	#app {
