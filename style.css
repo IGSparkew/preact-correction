@@ -1,0 +1,46 @@
+/* 
+* The following styles are for the form inputs and button
+*/
+input[type="date"] {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+	color: #ffffff;
+	
+}
+
+button[type="submit"] {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	background-color: #a206d1; 
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+button[type="submit"]:hover {
+	background-color: #54036b;
+}
+
+h2 {
+    color: #333; 
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none; 
+    padding: 0;
+}
+
+li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc; 
+}
+
+li:last-child {
+    border-bottom: none; 
+}

@@ -1,0 +1,178 @@
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+
+	color: #222;
+	background-color: #ffffff;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#app {
+	max-width: 1280px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+img {
+	margin-bottom: 1.5rem;
+}
+
+img:hover {
+	filter: drop-shadow(0 0 2em #673ab8aa);
+}
+
+section {
+	margin-top: 5rem;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 1.5rem;
+}
+
+.resource {
+	padding: 0.75rem 1.5rem;
+	border-radius: 0.5rem;
+	text-align: left;
+	text-decoration: none;
+	color: #222;
+	background-color: #f1f1f1;
+	border: 1px solid transparent;
+}
+
+.resource:hover {
+	border: 1px solid #000;
+	box-shadow: 0 25px 50px -12px #673ab888;
+}
+
+.title-execice {
+	color: #fdfdfd; 
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+/* 
+* The following styles are for the form inputs and button
+*/
+input[type="date"] {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+	color: #ffffff;
+	
+}
+
+button[type="submit"] {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	background-color: #a206d1; 
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+button[type="submit"]:hover {
+	background-color: #54036b;
+}
+
+h2 {
+    color: #333; 
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none; 
+    padding: 0;
+}
+
+li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc; 
+}
+
+li:last-child {
+    border-bottom: none; 
+}
+
+/* Navbar style */
+.menu {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 20px;
+    background-color: #673ab888;
+    border-bottom: 1px solid rgba(68, 62, 79, 0.533);
+	width: 100%;
+}
+
+.menu a {
+    text-decoration: none;
+	padding-left: 10px;
+	padding-right: 10px;
+    color: #ffffff;
+}
+
+.menu a:hover {
+    color: #000000;
+}
+
+/* Info profile form */
+.infoProfile {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+}
+  
+.infoProfile-field {
+display: flex;
+flex-direction: column;
+}
+
+.infoProfile-button {
+margin-top: 20px;
+padding: 10px 20px;
+}
+
+.infoProfile-body {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+@media (max-width: 639px) {
+	#app {
+		margin: 2rem;
+	}
+	section {
+		margin-top: 5rem;
+		grid-template-columns: 1fr;
+		row-gap: 1rem;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		color: #ccc;
+		background-color: #1a1a1a;
+	}
+	.resource {
+		color: #ccc;
+		background-color: #161616;
+	}
+	.resource:hover {
+		border: 1px solid #bbb;
+	}
+}
