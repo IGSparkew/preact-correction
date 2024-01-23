@@ -1,3 +1,5 @@
+
+/* Exercice 1 */
 /* 
 * The following styles are for the form inputs and button
 */
@@ -43,4 +45,62 @@ li {
 
 li:last-child {
     border-bottom: none; 
+}
+
+
+/* EXERCICE 2 */
+
+/* keep the style of exercice 1*/
+
+/* Change body in style.css: */
+body {
+	margin: 0;
+	padding: 0;
+}
+
+/* Navbar style */
+.menu {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 20px;
+    background-color: #673ab888;
+    border-bottom: 1px solid rgba(68, 62, 79, 0.533);
+	width: 100%;
+}
+
+.menu a {
+    text-decoration: none;
+	padding-left: 10px;
+	padding-right: 10px;
+    color: #ffffff;
+}
+
+.menu a:hover {
+    color: #000000;
+}
+
+/* Info profile form */
+.infoProfile {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+}
+  
+.infoProfile-field {
+display: flex;
+flex-direction: column;
+}
+
+.infoProfile-button {
+margin-top: 20px;
+padding: 10px 20px;
+}
+
+.infoProfile-body {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
