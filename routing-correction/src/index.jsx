@@ -1,4 +1,4 @@
-import { render, h } from 'preact';
+import { render, h, Component } from 'preact';
 import './style.css';
 import Router from 'preact-router';
 import { Home } from './pages/home';
@@ -11,11 +11,11 @@ export function App() {
 
 	return (
 		<div>
-			<Header />
-			<Router>
-				<Home path="/"/>
-				<Profile path="/profile"/>
-				<Calculator path="/calculator"/>
+			<Header /> {/* Header component to go between different link*/}
+			<Router> {/* Router componenet to defined routes of app*/}
+				<Home path="/"/>  {/* Home page */}
+				<Profile path="/profile"/> {/* Profile page */}
+				<Calculator path="/calculator"/> {/* Calculator page */}
 				<NotFound default/>
 			</Router>
 		</div>

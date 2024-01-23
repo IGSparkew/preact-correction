@@ -1,6 +1,7 @@
 import { useCallback, useState } from "preact/hooks";
 
-function useAuthForm() {
+// hook to separate the logic of the form
+function useProfileForm() {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [firstname, setFirstName] = useState('');
@@ -31,9 +32,10 @@ function useAuthForm() {
 
 }
 
+// principal component
 export function InfoProfileForm() {
 
-    const { email, name, firstname, age, handleChangeEmail, handleChangeName, handleChangeFirstname , handleChangeAge} = useAuthForm();
+    const { email, name, firstname, age, handleChangeEmail, handleChangeName, handleChangeFirstname , handleChangeAge} = useProfileForm();
 
     return (
       <div class="infoProfile-body">
