@@ -1,5 +1,6 @@
 import { Component, createRef } from "preact";
 import { useCallback, useEffect, useState } from "preact/hooks";
+import { ShowDate } from "./ShowDate";
 
 // hook that manage the user input
 function useInputDate() {
@@ -16,8 +17,7 @@ function useInputDate() {
 }
 
 /**
- * Input date component that calculate the next 3 periods dates from the user input
- * between periods we have 28 days
+ * Input date component that get date from the user input
  *  
  */
 export function InputDate() {
@@ -27,28 +27,12 @@ export function InputDate() {
 
     // isCalculated is a boolean that indicate if the user has already submit a date
     const [isCalculated, setIsCalculated] = useState(false);
-
-    // nextDates is an array of 3 dates that represent the next periods dates
-    const [nextDates, setNextDates] = useState([]);
     
     // handleSubmit is a function that is called when the user submit a date
     const handleSubmit = useCallback((event) => {
         event.preventDefault();
         setIsCalculated(true);
     }, [isCalculated]);
-    
-    useEffect(() => {
-        // if the user has already submit a date, we calculate the next periods dates
-        if (isCalculated) {
-            const dates = [];
-            const date = new Date(userDate);
-            for (let i = 0; i < 3; i++) {
-                date.setDate(date.getDate() + 28);
-                dates.push(date.toISOString().split('T')[0]);
-            }
-            setNextDates(dates);
-        }
-    }, [isCalculated, userDate])
 
     return (
         <div>
@@ -58,12 +42,7 @@ export function InputDate() {
                 <button class="submit-button" type="submit">Enter date</button>
             </form>
 
-            {isCalculated && (<div>
-                <h2>Dates des 3 prochaines périodes menstruelles :</h2>
-                <ul>
-                    {nextDates.map((date, index) => <li key={index}>{date}</li>)}
-                </ul>
-            </div>)}
+            {isCalculated && <ShowDate isCalculated={isCalculated} userDate={userDate} />}
         </div>
     );    
 }
