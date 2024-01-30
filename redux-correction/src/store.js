@@ -1,5 +1,8 @@
 import {configureStore} from '@reduxjs/toolkit';
+import calendarDatesReducer from './features/calendarDates';
 
-configureStore({
-    reducer: {}
+export default configureStore({
+    reducer: {
+        calendarDates: calendarDatesReducer,
+    }
 });

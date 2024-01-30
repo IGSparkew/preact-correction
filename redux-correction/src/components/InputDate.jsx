@@ -1,5 +1,6 @@
-import { Component, createRef } from "preact";
-import { useCallback, useEffect, useState } from "preact/hooks";
+import { useCallback, useState } from "preact/hooks";
+import { useDispatch } from "react-redux";
+import { addDate } from "../features/calendarDates";
 
 // hook that manage the user input
 function useInputDate() {
@@ -21,18 +22,19 @@ export function InputDate() {
     // useInputDate is a custom hook that manage the user input
     const { userDate, changeInput } = useInputDate();
 
+    const dispatch = useDispatch();
     
     // handleSubmit is a function that is called when the user submit a date
     const handleSubmit = useCallback((event) => {
         event.preventDefault();
-        
-    }, []);
+        dispatch(addDate(userDate));
+    }, [userDate, dispatch]);
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input class="date-input" type="date" value={userDate} onChange={changeInput}/>
-                <button class="submit-button" type="submit">Enter date</button>
+                <input class="input-date" type="date" value={userDate} onChange={changeInput}/>
+                <button class="add-button" type="submit">Enter date</button>
             </form>
         </div>
     );    
