@@ -1,13 +1,21 @@
 import { render } from 'preact';
-import preactLogo from './assets/preact.svg';
 import './style.css';
 import { Button, ThemeProvider, createTheme } from '@mui/material';
 import { purple } from '@mui/material/colors';
+import { NavMenu } from './components/menu';
 
+let theme = createTheme({
 
-const theme = createTheme({
+});
+
+theme = createTheme(theme, {
 	palette: {
-	  primary: purple,
+	  purpleButton: theme.palette.augmentColor ({
+		color: {
+			main: '#ED017A',
+		},
+		name: 'purpleButton'
+	  })
 	},
   });
 
@@ -15,10 +23,8 @@ export function App() {
 	return (
 
 		<ThemeProvider theme={theme}>
-		<div>
-			<Button variant="contained" size="large" color='primary'>Découvrir</Button>
-		
-		</div>
+			<NavMenu />
+			<Button variant="contained" size="large" color='purpleButton'>Découvrir</Button>
 		</ThemeProvider>
 	);
 }
