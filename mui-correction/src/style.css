@@ -1,3 +1,32 @@
+
+.app-container {
+    display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+.app-half-first {
+    flex: 1;
+    background-image: url('./fond_1.png');
+    background-size: 100% auto;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+
+.app-half-second {
+    flex: 1;
+    background-image: linear-gradient(rgba(237, 1, 122, 0.5), rgba(237, 1, 122, 0.5)), url('./fond_2.png');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.logo {
+	width: 50px;
+	object-fit: contain;
+}
+
+
 @media (max-width: 639px) {
 	#app {
 		margin: 2rem;
