@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
-import icon from '../assets/image 1.png'
+import icon from '../assets/appIcon.png';
 import { CssBaseline, Divider, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 
 const pages = ['Pricing', 'Blog'];
