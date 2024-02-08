@@ -31,7 +31,7 @@ theme = createTheme(theme, {
 function TitleApp(){
 	const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-	
+
 	return (
 		<Box sx={{display: 'flex', flexWrap:'wrap', justifyContent:'center', alignItems: 'center', marginTop:40, marginBottom:40}}>
 			<img src={AppIcon} style={{margin:'-50px'}} alt="logo"/>
@@ -55,7 +55,7 @@ function BottomTitle() {
 		<Box sx={{display: 'flex', flexWrap:'wrap', justifyContent:'center', alignItems:'center', marginTop:10}}>
 			<img src={BlueIcon} alt="logo blue"/>
 			<Typography variant='h4' sx={{whiteSpace:'pre-line', textAlign:'center', WebkitTextStroke:'1px white'}} color="primary">
-				{'Si vous souhaitez suivre votre cycle \nmenstruel, vous êtes au bonne endroit !'}
+				{'Si vous souhaitez suivre votre cycle \nmenstruel, vous êtes au bon endroit !'}
 			</Typography>
 		</Box>
 	);
