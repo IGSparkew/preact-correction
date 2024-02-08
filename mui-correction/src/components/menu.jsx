@@ -1,14 +1,9 @@
-import React from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
-import Drawer from '@mui/material/Drawer';
 import icon from '../assets/appIcon.png';
-import { CssBaseline, Divider, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 
 const pages = ['Pricing', 'Blog'];
 const drawerWidth = 240;
