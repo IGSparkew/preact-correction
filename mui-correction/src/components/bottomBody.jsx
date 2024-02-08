@@ -5,11 +5,12 @@ import ImageCycle from '../assets/imageCycle.png';
 
 
 export function BottomBody() {
-	const theme = useTheme();
+
+    const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
 	return(
-		<Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap:'wrap', marginTop:2}}>
+		<Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap:'wrap', marginTop:2, marginBottom: isMobile ? 10: 'none'}}>
 			<img 
 			src={ImageCycle} 
 			style={{

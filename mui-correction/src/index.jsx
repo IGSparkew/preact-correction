@@ -35,11 +35,14 @@ export function App() {
 				<div class="app-half-first">
 					<NavMenu />
 					<TitleApp />
+					<Box sx={{display:'flex', justifyContent:'center', alignItems:'center', marginBottom:35}}>
+						<Button variant="contained" size="large" color='secondary'>Découvrir</Button>
+                	</Box>
 				</div>
 				<div class="app-half-second">
 					<Box>
 						<BottomTitle />
-						<BottomBody />
+						<BottomBody/>
 					</Box>				
 				</div>
 			</div>
