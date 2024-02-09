@@ -25,7 +25,7 @@ export function InputDate() {
     const handleSubmit = useCallback((event) => {
         event.preventDefault();
         if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
-            navigator.serviceWorker.controller.postMessage(userDate);
+            navigator.serviceWorker.controller.postMessage({action: 'add', date: userDate});
         }
 
     }, [userDate]);

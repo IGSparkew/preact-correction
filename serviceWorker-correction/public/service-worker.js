@@ -15,21 +15,61 @@ request.onerror = function(event) {
 };
 
 self.addEventListener('message', function(event){
-    if (event.data === 'getDates') {
-      const transaction = db.transaction(["dates"], "readonly");
+    if (event.data.action === 'delete') {
+        deleteDate(event);
+        getAllData(event);
+    }else if (event.data.action === 'get') {
+      getAllData(event);
+    } else if(event.data.action === 'add') {
+      insertData(event);
+      getAllData(event);
+    }
+  });
+
+
+  function getAllData(event) {
+    const transaction = db.transaction(["dates"], "readonly");
       const store = transaction.objectStore("dates");
-      const request = store.getAll();
-  
-      request.onsuccess = function() {
-        const dates = request.result;
-        event.source.postMessage(dates);
+      const getAllDaterequest = store.getAll();
+      const getAllKeysRequest = store.getAllKeys();
+
+
+      getAllDaterequest.onsuccess = function() {
+        var dates = getAllDaterequest.result;
+        getAllKeysRequest.onsuccess = function() {
+          var keys = getAllKeysRequest.result;
+          var dateWithKeys = dates.map((date, index) => {
+            return {
+              date: date,
+              key: keys[index]
+            };
+          });
+          event.source.postMessage(dateWithKeys);
+      
+        };
+        
       };
-    } else {
-      const date = event.data;
-    
-      // Sauvegarder la date dans IndexedDB
+  }
+
+  function insertData(event) {
+    const date = event.data.date;
       const transaction = db.transaction(["dates"], "readwrite");
       const store = transaction.objectStore("dates");
       store.add(date);
-    }
-  });
+  }
+
+  function deleteDate(event) {
+    const key = event.data.key;
+    const transaction = db.transaction(["dates"], "readwrite");
+    const store = transaction.objectStore("dates");
+    const request = store.delete(key);
+
+    request.onerror = function() {
+      console.log("Error deleting date", event);
+    };
+
+    request.onsuccess = function() {
+
+    };
+
+  }

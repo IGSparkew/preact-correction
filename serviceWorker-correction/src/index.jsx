@@ -10,34 +10,44 @@ export function App() {
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js')
-        .then(function(registration) {
-          console.log('Service Worker Registered', registration);
-          
-          // Listen for updates to the service worker
-          registration.addEventListener('updatefound', () => {
-            // If there is a new service worker, track its state
-            const newWorker = registration.installing;
-            
-            if (newWorker == null) {
-                return;
-            }
+          .then(function(registration) {
+              console.log('Service Worker Registered', registration);
 
-            newWorker.addEventListener('statechange', () => {
-            // If the new service worker has become active, send a message to it
-            if (newWorker.state === 'activated') {
-                newWorker.postMessage('getDates');
-            }
+              // If there is a new service worker, track its state
+              if (registration.installing) {
+                  const newWorker = registration.installing;
+
+                  newWorker.addEventListener('statechange', () => {
+                      // If the new service worker has become active, send a message to it
+                      if (newWorker.state === 'activated') {
+                          newWorker.postMessage({action: 'get'});
+                      }
+                  });
+              } else if (registration.waiting) {
+                  registration.waiting.postMessage({action: 'get'});
+              } else if (registration.active) {
+                  registration.active.postMessage({action: 'get'});
+              }
+
+              // Listen for updates to the service worker
+              registration.addEventListener('updatefound', () => {
+                  const newWorker = registration.installing;
+
+                  newWorker.addEventListener('statechange', () => {
+                      // If the new service worker has become active, send a message to it
+                      if (newWorker.state === 'activated') {
+                          newWorker.postMessage({action: 'get'});
+                      }
+                  });
+              });
+          })
+          .catch(function(error) {
+              console.log('Service Worker Registration Failed', error);
           });
-        });
-      })
-        .catch(function(error) {
-          console.log('Service Worker Registration Failed', error);
-        });
 
-      // Écouter les messages du service worker
+      // Listen for messages from the service worker
       navigator.serviceWorker.addEventListener('message', function(event) {
-        console.log(event.data)
-        setDates(event.data);
+          setDates(event.data);
       });
     }
   }, []);
