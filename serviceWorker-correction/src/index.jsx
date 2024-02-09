@@ -17,7 +17,7 @@ export function App() {
           registration.addEventListener('updatefound', () => {
             // If there is a new service worker, track its state
             const newWorker = registration.installing;
-
+            
             if (newWorker == null) {
                 return;
             }
@@ -36,6 +36,7 @@ export function App() {
 
       // Écouter les messages du service worker
       navigator.serviceWorker.addEventListener('message', function(event) {
+        console.log(event.data)
         setDates(event.data);
       });
     }
@@ -45,7 +46,7 @@ export function App() {
 	<div>
 	  <h1>Service Worker</h1>
     <InputDate />
-    <HistoryDate />
+    <HistoryDate dates={dates}/>
 	</div>
   );
 }
