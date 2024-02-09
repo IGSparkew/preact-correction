@@ -1,5 +1,4 @@
-// Ouvrir une connexion à IndexedDB
-let db;
+var db;
 const request = indexedDB.open("datesDatabase", 1);
 
 request.onupgradeneeded = function(event) {
@@ -15,7 +14,6 @@ request.onerror = function(event) {
   console.log("Erreur d'ouverture de la base de données", event);
 };
 
-// Écouter les messages de l'application
 self.addEventListener('message', function(event){
     if (event.data === 'getDates') {
       const transaction = db.transaction(["dates"], "readonly");

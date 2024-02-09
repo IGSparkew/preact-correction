@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "preact/hooks";
-import { useDispatch, useSelector } from "react-redux";
 
 export function HistoryDate() {
 
