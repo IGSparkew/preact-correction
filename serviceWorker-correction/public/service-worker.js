@@ -11,7 +11,7 @@ request.onsuccess = function(event) {
 };
 
 request.onerror = function(event) {
-  console.log("Erreur d'ouverture de la base de données", event);
+  console.log("Erreur on open dataBase", event);
 };
 
 self.addEventListener('message', function(event){

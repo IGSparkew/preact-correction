@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "preact/hooks";
+import { useCallback } from "preact/hooks";
 
 export function HistoryDate({dates}) {
 
