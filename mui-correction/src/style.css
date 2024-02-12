@@ -6,7 +6,7 @@
 
 .app-half-first {
     flex: 1;
-    background-image: url('./fond_1.png');
+    background-image: url('./fond_1.jpg');
     background-size: cover;
 	background-repeat: no-repeat;
     background-position: center;
@@ -16,7 +16,7 @@
 
 .app-half-second {
     flex: 1;
-    background-image: linear-gradient(rgba(237, 1, 122, 0.5), rgba(237, 1, 122, 0.5)), url('./fond_2.png');
+    background-image: linear-gradient(rgba(237, 1, 122, 0.5), rgba(237, 1, 122, 0.5)), url('./fond_2.jpg');
     background-size: cover;
 	background-repeat: no-repeat;
     background-position: center;
