@@ -1,5 +1,5 @@
 import './assets/main.css'
-import App from './App'
+import { App } from './App.jsx'
 import { render } from 'preact'
 
 
