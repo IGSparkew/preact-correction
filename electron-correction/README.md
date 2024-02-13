@@ -114,6 +114,14 @@ add jsconfig.js file in root of folder
 }
 ```
 
+#### Config index.js
+
+add this line to the line of the file in /src/main/index.js
+
+```javascript
+app.disableHardwareAcceleration()
+```
+
 ### Uninstall useless library
 
 ```bash
