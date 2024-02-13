@@ -1,6 +1,5 @@
-import './assets/main.css'
-import { App } from './App.jsx'
-import { render } from 'preact'
+import { App } from './App.jsx';
+import { render } from 'preact';
 
 
 render(<App />, document.getElementById('app'));
