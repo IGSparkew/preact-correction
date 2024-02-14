@@ -1,5 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
-
+/*
+* props: isCalculated, userDate
+*/
 export function ShowDate({isCalculated, userDate}) {
 
     // nextDates is an array of 3 dates that represent the next periods dates
@@ -22,6 +24,7 @@ export function ShowDate({isCalculated, userDate}) {
         <div>
             <h2>Dates des 3 prochaines périodes menstruelles :</h2>
             <ul>
+                {/* map in jsx to loop into dates map */}
                 {nextDates.map((date, index) => <li key={index}>{date}</li>)}
             </ul>
         </div>

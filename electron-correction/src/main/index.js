@@ -70,6 +70,7 @@ app.on('window-all-closed', () => {
   }
 })
 
+// add for linux user to disable hardware acceleration to avoid trouble !
 app.disableHardwareAcceleration()
 
 // In this file you can include the rest of your app"s specific main process
