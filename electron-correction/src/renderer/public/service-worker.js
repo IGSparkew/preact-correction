@@ -1,4 +1,5 @@
 var db;
+// create datesDatabase in index db
 const request = indexedDB.open("datesDatabase", 1);
 
 request.onupgradeneeded = function(event) {
@@ -8,25 +9,28 @@ request.onupgradeneeded = function(event) {
 
 request.onsuccess = function(event) {
   db = event.target.result;
+
+  // listen to message from main thread
+  self.addEventListener('message', function(event){
+    if (event.data.action === 'delete') {
+        deleteDate(event);
+        getAllData(event);
+    }else if (event.data.action === 'get') {
+        getAllData(event);
+    } else if(event.data.action === 'add') {
+        insertData(event);
+        getAllData(event);
+    }
+  });
 };
 
 request.onerror = function(event) {
   console.log("Erreur on open dataBase", event);
 };
 
-self.addEventListener('message', function(event){
-    if (event.data.action === 'delete') {
-        deleteDate(event);
-        getAllData(event);
-    }else if (event.data.action === 'get') {
-      getAllData(event);
-    } else if(event.data.action === 'add') {
-      insertData(event);
-      getAllData(event);
-    }
-  });
+/* Index Db interaction function */
 
-
+// get all dates from index db
   function getAllData(event) {
     const transaction = db.transaction(["dates"], "readonly");
       const store = transaction.objectStore("dates");
@@ -51,6 +55,7 @@ self.addEventListener('message', function(event){
       };
   }
 
+  // insert date in index db
   function insertData(event) {
     const date = event.data.date;
       const transaction = db.transaction(["dates"], "readwrite");
@@ -58,6 +63,7 @@ self.addEventListener('message', function(event){
       store.add(date);
   }
 
+  // delete date from index db
   function deleteDate(event) {
     const key = event.data.key;
     const transaction = db.transaction(["dates"], "readwrite");
