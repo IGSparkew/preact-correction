@@ -11,11 +11,16 @@ export function App() {
 
 	return (
 		<div>
-			<Header /> {/* Header component to go between different link*/}
-			<Router> {/* Router componenet to defined routes of app*/}
-				<Home path="/"/>  {/* Home page */}
-				<Profile path="/profile"/> {/* Profile page */}
-				<Calculator path="/calculator"/> {/* Calculator page */}
+			{/* Header component to go between different link*/}
+			<Header /> 
+			{/* Router componenet to defined routes of app*/}
+			<Router>
+				{/* Home page */} 
+				<Home path="/"/> 
+				{/* Profile page */} 
+				<Profile path="/profile"/> 
+				{/* Calculator page */}
+				<Calculator path="/calculator"/> 
 				<NotFound default/>
 			</Router>
 		</div>
