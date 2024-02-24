@@ -9,24 +9,25 @@ request.onupgradeneeded = function(event) {
 
 request.onsuccess = function(event) {
   db = event.target.result;
-
-  // listen to message from main thread
-  self.addEventListener('message', function(event){
-    if (event.data.action === 'delete') {
-        deleteDate(event);
-        getAllData(event);
-    }else if (event.data.action === 'get') {
-        getAllData(event);
-    } else if(event.data.action === 'add') {
-        insertData(event);
-        getAllData(event);
-    }
-  });
 };
 
 request.onerror = function(event) {
   console.log("Erreur on open dataBase", event);
 };
+
+
+// listen to message from main thread
+self.addEventListener('message', function(event){
+  if (event.data.action === 'delete') {
+      deleteDate(event);
+      getAllData(event);
+  }else if (event.data.action === 'get') {
+      getAllData(event);
+  } else if(event.data.action === 'add') {
+      insertData(event);
+      getAllData(event);
+  }
+});
 
 /* Index Db interaction function */
 
